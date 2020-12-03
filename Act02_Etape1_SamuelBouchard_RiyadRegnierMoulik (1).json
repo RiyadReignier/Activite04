@@ -1,0 +1,341 @@
+{
+    "authors": [
+        {
+            "name": "Samuel Bouchard"
+        },
+        {
+            "name": "Riyad Reignier-Moulik"
+        }
+    ],
+    "version": 1.0,
+    "services": [
+        {
+            "method": "get",
+            "name": "firstIndexSequence",
+            "uri": "/api/v1/stringmod",
+            "role": "return the start index of the first sequence of n consecutive elements",
+            "args": [
+                {
+                    "name": "s",
+                    "value": "String"
+                },
+                {
+                    "name": "n",
+                    "type": "Integer"
+                }
+            ],
+            "examples": [
+                {
+                    "uri": "/api/v1/stringmod/firstIndexSequence?s=aaabbccccdeeeff&n=2",
+                    "result": 3
+                },
+                {
+                    "uri": "/api/v1/stringmod/firstIndexSequence?s=aaaaabbcccdddddeee&n=3",
+                    "result": 8
+                },
+                {
+                    "uri": "/api/v1/stringmod/firstIndexSequence?s=aabbccddee&n=3",
+                    "result": -1
+                },
+                {
+                    "uri": "/api/v1/stringmod/firstIndexSequence?s=aaaabbbcccc&n=-1",
+                    "result": -1
+                }
+            ]
+        },
+        {
+            "method": "get",
+            "name": "longestSequenceIndex",
+            "uri": "/api/v1/stringmod",
+            "role": "return the start and end index of the longest sequence of consecutive elements",
+            "args": [
+                {
+                    "name": "s",
+                    "value": "String"
+                }
+            ],
+            "examples": [
+                {
+                    "uri": "/api/v1/stringmod/longestSequenceIndex?s=aaaabbcccdddddeee",
+                    "result": { "startIndex" : 10, "endIndex" : 15}
+                },
+                {
+                    "uri": "/api/v1/stringmod/longestSequenceIndex?s=",
+                    "error": { "startIndex" : 0, "endIndex" : 0}
+                }
+            ]
+        },
+        {
+            "method": "get",
+            "name": "invertWordLocation",
+            "uri": "/api/v1/stringmod",
+            "role": "return a string with the words in reverse order but keeping the length and location of the white spaces",
+            "args": [
+                {
+                    "name": "s",
+                    "value": "String"
+                }
+            ],
+            "examples": [
+                {
+                    "uri": "/api/v1/stringmod/invertWordLocation?s= j'aime mon prof ",
+                    "result": " prof mon j'aime "
+                },
+                {
+                    "uri": "/api/v1/stringmod/invertWordLocation?s=Je me suis fait OutofRange",
+                    "result": "OutofRange fait suis me je"
+                },
+                {
+                    "uri": "/api/v1/stringmod/invertWordLocation?s=",
+                    "result": ""
+                }
+            ]
+        },
+        {
+            "method": "get",
+            "name": "invertWord",
+            "uri": "/api/v1/stringmod",
+            "role": "return a string with the reverse words but keeping the length and location of the white spaces",
+            "args": [
+                {
+                    "name": "s",
+                    "value": "String"
+                }
+            ],
+            "examples": [
+                {
+                    "uri": "/api/v1/stringmod/invertWord?s=  kayak ",
+                    "result": "  kayak "
+                },
+                {
+                    "uri": "/api/v1/stringmod/invertWord?s=    yo man",
+                    "result": "    oy nam"
+                },
+                {
+                    "uri": "/api/v1/stringmod/invertWord?s=",
+                    "result": ""
+                }
+            ]
+        },
+        {
+            "method": "get",
+            "name": "trimStart",
+            "uri": "/api/v1/stringmod",
+            "role": "return s but removing all the occurence of c at the begining",
+            "args": [
+                {
+                    "name": "s",
+                    "value": "String"
+                },
+                {
+                    "name": "c",
+                    "value":"String"
+                }
+            ],
+            "examples": [
+                {
+                    "uri": "/api/v1/stringmod/trimStart?s=----LOL----&c=-",
+                    "result": "LOL----"
+                },
+                {
+                    "uri": "/api/v1/stringmod/trimStart?s=    yo man    &c= ",
+                    "result": "yo man    "
+                },
+                {
+                    "uri": "/api/v1/stringmod/trimStart?s=  j'aime mon prof &c=",
+                    "result": "  j'aime mon prof "
+                }
+            ]
+        },
+        {
+            "method": "get",
+            "name": "trimEnd",
+            "uri": "/api/v1/stringmod",
+            "role": "return s but removing all the occurence of c at the end",
+            "args": [
+                {
+                    "name": "s",
+                    "value": "String"
+                },
+                {
+                    "name": "c",
+                    "value":"String"
+                }
+            ],
+            "examples": [
+                {
+                    "uri": "/api/v1/stringmod/trimEnd?s=----LOL----&c=-",
+                    "result": "----LOL"
+                },
+                {
+                    "uri": "/api/v1/stringmod/trimEnd?s=    yo man    &c= ",
+                    "result": "yo man    "
+                },
+                {
+                    "uri": "/api/v1/stringmod/trimEnd?s=  j'aime mon prof &c=",
+                    "result": "  j'aime mon prof "
+                }
+            ]
+        },
+        {
+            "method": "get",
+            "name": "trim",
+            "uri": "/api/v1/stringmod",
+            "role": "return s but removing all the occurence of c at the begining and the end",
+            "args": [
+                {
+                    "name": "s",
+                    "value": "String"
+                },
+                {
+                    "name": "c",
+                    "value":"String"
+                }
+            ],
+            "examples": [
+                {
+                    "uri": "/api/v1/stringmod/trim?s=----LOL----&c=-",
+                    "result": "LOL"
+                },
+                {
+                    "uri": "/api/v1/stringmod/trim?s=    yo man    &c= ",
+                    "result": "yo man"
+                },
+                {
+                    "uri": "/api/v1/stringmod/trim?s=  j'aime mon prof &c=",
+                    "result": "  j'aime mon prof "
+                }
+            ]
+        },
+        {
+            "method": "get",
+            "name": "replaceWhiteSpace",
+            "uri": "/api/v1/stringmod",
+            "role": "return s but replacing all the white space by single space",
+            "args": [
+                {
+                    "name": "s",
+                    "value": "String"
+                }
+            ],
+            "examples": [
+                {
+                    "uri": "/api/v1/stringmod/replaceWhiteSpace?s=Luke    je suis  ton   père",
+                    "result": "Luke je suis ton père"
+                },
+                {
+                    "uri": "/api/v1/stringmod/replaceWhiteSpace?s=",
+                    "result": ""
+                }
+            ]
+        },
+        {
+            "method": "get",
+            "name": "badWord",
+            "uri": "/api/v1/stringmod",
+            "role": "return s but replacing all bad word with something else",
+            "args": [
+                {
+                    "name": "s",
+                    "value": "String"
+                }
+            ],
+            "examples": [
+                {
+                    "uri": "/api/v1/stringmod/badWord?s=Un nain",
+                    "result": "un n***"
+                },
+                {
+                    "uri": "/api/v1/stringmod/badWord?s=",
+                    "result": ""
+                }
+            ]
+        },
+        {
+            "method": "post",
+            "name": "badWord",
+            "uri": "/api/v1/stringmod",
+            "role": "add a bad word to the list",
+            "args": [
+                {
+                    "name": "s",
+                    "value": "String"
+                }
+            ],
+            "examples": [
+                {
+                    "uri": "/api/v1/stringmod/badWord?s=chalet",
+                    "result": { "status_code": 200 ,"message" : "Ce mot à été ajouté à la liste" }
+                },
+                {
+                    "uri": "/api/v1/stringmod/badWord?s=  test   ",
+                    "result": { "status_code": 400 ,"message" : "Cette chaine contient des blancs" }
+                },
+                {
+                    "uri": "/api/v1/stringmod/badWord?s=nain",
+                    "result":{ "status_code": 200 ,"message" : "Ce mot est déjà présent dans la liste" } 
+                }
+            ]
+        },
+        {
+            "method": "delete",
+            "name": "badWord",
+            "uri": "/api/v1/stringmod",
+            "role": "remove a bad word from the list",
+            "args": [
+                {
+                    "name": "s",
+                    "value": "String"
+                }
+            ],
+            "examples": [
+                {
+                    "uri": "/api/v1/stringmod/badWord?s=chalet",
+                    "result": { "status_code": 200 ,"message" : "Ce mot a été retiré de la liste" }
+                },
+                {
+                    "uri": "/api/v1/stringmod/badWord?s=  test   ",
+                    "result": { "status_code": 400 ,"message" : "Cette chaine contient des blancs" }
+                },
+                {
+                    "uri": "/api/v1/stringmod/badWord?s=transformer",
+                    "result":{ "status_code": 400 ,"message" : "Ce mot n'existe pas dans la liste" } 
+                }
+            ]
+        },
+        {
+            "method": "get",
+            "name": "badWord",
+            "uri": "/api/v1/stringmod",
+            "role": "get the bad word list",
+            "args": [
+                {
+                    "name": "sort",
+                    "value": "String"
+                }
+            ],
+            "examples": [
+                {
+                    "uri": "/api/v1/stringmod/badWord?sort=alphabeticalAsc",
+                    "result": ["covid", "nain", "politique", "religion"]
+                },
+                {
+                    "uri": "/api/v1/stringmod/badWord?sort=alphabeticalDesc",
+                    "result": ["religion", "politique", "nain", "covid"]
+                },
+                {
+                    "uri": "/api/v1/stringmod/badWord?sort=lengthAsc",
+                    "result": ["nain", "covid", "religion", "politique"]
+                },
+                {
+                    "uri": "/api/v1/stringmod/badWord?sort=lengthDesc",
+                    "result": ["politique", "religion", "covid", "nain"]
+                },
+                {
+                    "uri": "/api/v1/stringmod/badWord",
+                    "result": ["religion", "nain", "politique", "covid"]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,92 @@
+[
+    {
+        "Verbe" : "firstIndexSequence",
+        "tests" : [
+            {
+                "Test à faire" : "/api/v1/stringmod/firstIndexSequence?s=aabbdddde&n=4",
+                "Résultat attendu" : 4,
+                "Résultat obtenu" : 4
+            },
+            {
+                "Test à faire" : "/api/v1/stringmod/firstIndexSequence?s=aabbdddde&n=1",
+                "Résultat attendu" : 8,
+                "Résultat obtenu" : 8
+            },
+            {
+                "Test à faire" : "/api/v1/stringmod/firstIndexSequence?s=aabbdddde&n=0",
+                "Résultat attendu" : -1,
+                "Résultat obtenu" : -1
+            },
+            {
+                "Test à faire" : "/api/v1/stringmod/firstIndexSequence?s=aabbdddde&n=-1",
+                "Résultat attendu" : -1,
+                "Résultat obtenu" : -1
+            },
+            {
+                "Test à faire" : "/api/v1/stringmod/firstIndexSequence?s=&n=1",
+                "Résultat attendu" : -1,
+                "Résultat obtenu" : -1
+            }
+        ]
+    },
+    {
+        "Verbe" : "longestSequenceIndex",
+        "tests" : [
+            {
+                "Test à faire" : "/api/v1/stringmod/longestSequenceIndex?s=abbbbccd",
+                "Résultat attendu" : {"start": 1, "end": 5},
+                "Résultat obtenu" : {"start": 1, "end": 5}
+            },
+            {
+                "Test à faire" : "/api/v1/stringmod/longestSequenceIndex?s=abbdddde",
+                "Résultat attendu" : {"start": 3, "end": 7},
+                "Résultat obtenu" : {"start": 3, "end": 7}
+            },
+            {
+                "Test à faire" : "/api/v1/stringmod/longestSequenceIndex?s=aaeaaabbbddddkk",
+                "Résultat attendu" : {"start": 9, "end": 13},
+                "Résultat obtenu" :  {"start": 9, "end": 13}
+            },
+            {
+                "Test à faire" : "/api/v1/stringmod/longestSequenceIndex?s=abcdefghijkl",
+                "Résultat attendu" : {"start": 0, "end": 1},
+                "Résultat obtenu" : {"start": 0, "end": 1}
+            },
+            {
+                "Test à faire" : "/api/v1/stringmod/longestSequenceIndex?s=",
+                "Résultat attendu" : {"start": 0, "end": 0},
+                "Résultat obtenu" : {"start": 0, "end": 0}
+            }
+        ]
+    },
+    {
+        "Verbe" : "invertWordLocation",
+        "tests" : [
+            {
+                "Test à faire" : "/api/v1/stringmod/longestSequenceIndex?s=abbbbccd",
+                "Résultat attendu" : {"start": 1, "end": 5},
+                "Résultat obtenu" : {"start": 1, "end": 5}
+            },
+            {
+                "Test à faire" : "/api/v1/stringmod/longestSequenceIndex?s=abbdddde",
+                "Résultat attendu" : {"start": 3, "end": 7},
+                "Résultat obtenu" : {"start": 3, "end": 7}
+            },
+            {
+                "Test à faire" : "/api/v1/stringmod/longestSequenceIndex?s=aaeaaabbbddddkk",
+                "Résultat attendu" : {"start": 9, "end": 13},
+                "Résultat obtenu" :  {"start": 9, "end": 13}
+            },
+            {
+                "Test à faire" : "/api/v1/stringmod/longestSequenceIndex?s=abcdefghijkl",
+                "Résultat attendu" : {"start": 0, "end": 1},
+                "Résultat obtenu" : {"start": 0, "end": 1}
+            },
+            {
+                "Test à faire" : "/api/v1/stringmod/longestSequenceIndex?s=",
+                "Résultat attendu" : {"start": 0, "end": 0},
+                "Résultat obtenu" : {"start": 0, "end": 0}
+            }
+        ]
+    }
+]
